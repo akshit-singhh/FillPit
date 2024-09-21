@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+#map {
+    height: 180px;
+    width: 100%; /* Ensure the map takes the full width */
+    border-radius: 10px ;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.6);
+
+}
+
+.submission-form-container {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    width: 100%; /* Ensure the container is 100% on smaller screens */
+    max-width: 500px; /* Limit the max width for larger screens */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-top: 10px
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.form-group input[type="file"] {
+    border: none;
+    padding: 0;
+}
+
+.form-group .select-image {
+    display: block;
+    margin: 0;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.form-group .select-image:hover {
+    background-color: #0056b3;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+/* Add this to submit.css */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.form-group button:hover {
+    background-color: #218838;
+}
+
+.location-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Responsive Design using Media Queries */
+
+/* For small devices like phones */
+@media (max-width: 768px) {
+    .submission-form-container {
+        width: 100%; /* Make the form full width */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    body {
+        padding: 10px;
+    }
+}
+
+/* For extra small devices like very small phones */
+@media (max-width: 480px) {
+    .submission-form-container {
+        padding: 15px; /* Reduce padding on very small screens */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        font-size: 14px; /* Reduce input and textarea font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .form-group button {
+        font-size: 16px; /* Adjust button font size */
+        padding: 10px; /* Adjust button padding */
+    }
+}
+
+

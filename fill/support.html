@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us</title>
+    <link rel="shortcut icon" href="images/Pink and Purple Gradient Tech Abstract.png" type="image/x-icon">
+    <link rel="stylesheet" href="support.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Support Our Work</h1>
+            <p>Your donations make a difference. Choose a cause and support us!</p>
+        </header>
+
+        <main>
+            <div class="form-container">
+                <h2>Make a Donation</h2>
+                <form id="userForm">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+        
+                    <!-- <button type="submit">Submit</button> -->
+                </form>
+            <div class="donation-section">
+                <!-- <h2>Make a Donation</h2> -->
+                <form id="donationForm">
+                    <label for="donationAmount">Select Donation Amount:</label>
+                    <select id="donationAmount" name="donationAmount">
+                        <option value="10">₹10</option>
+                        <option value="50">₹50</option>
+                        <option value="100">₹100</option>
+                        <option value="200">₹200</option>
+                        <option value="500">₹500</option>
+                    </select>
+
+                    <label for="customAmount">Or enter a custom amount:</label>
+                    <input type="number" id="customAmount" name="customAmount" placeholder="Enter amount" min="1">
+
+                    <button type="button" id="donateButton">Donate Now</button>
+                </form>
+                <p id="paymentStatus"></p>
+            </div>
+        </main>
+
+        <section class="card-section">
+            <div class="card">
+                <div class="card-image1" style="background-image: url('images/ani_cartoon_214.png');"></div>
+                <div class="card-content1">
+                    <!-- <h2>Education for All</h2> -->
+                    <p> Report us as soon as you spot any potholes or any other road safety issues that need to be solved immediately & bring out social awareness about road safety among all citizens for a better India.</p>
+                    <!-- <button class="support-button" data-cause="Education">Support</button> -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image" style="background-image: url('images/Free\ Vector\ _\ Digital\ currency\ indian\ rupee\ symbol\ on\ golden\ coin.png');"></div>
+                <div class="card-content">
+                    <!-- <h2>Healthcare Support</h2> -->
+                    <p>Donate as individual, organization, or institute and help support us in our venture. With your generous contribution, we will be able to provide you the highest quality service. </p>
+                    <!-- <button class="support-button" data-cause="Healthcare">Support</button> -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image" style="background-image: url('images/Premium\ Vector\ _\ Handshake\ icon\ in\ flat\ style.png');"></div>
+                <div class="card-content">
+                    <!-- <h2>Environmental Protection</h2> -->
+                    <p>Come and join us and contribute to the wellbeing of the nation. Volunteering with us in fixing potholes and other road issues will help you make a safer road for your family and loved ones.</p>
+                    <!-- <button class="support-button" data-cause="Environment">Support</button> -->
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Thank you for your generosity. Together, we can make a change.</p>
+        </footer>
+    </div>
+    <script src="support.js"></script>
+</body>
+</html>

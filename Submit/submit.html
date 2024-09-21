@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Details</title>
+    <link rel="stylesheet" href="submit.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+    <div class="submission-form-container">
+        <h1>Submit Your Details</h1>
+        <form id="submissionForm" action="submit.php" method="POST" enctype="multipart/form-data">
+            <!-- Image Upload Section -->
+            <div class="form-group">
+                <label for="imageUpload">Upload Image:</label>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display:none;" onchange="showImageName()">
+                <button type="button" class="select-image" onclick="document.getElementById('imageUpload').click()">Select Image</button>
+                <p id="imageName" style="margin-top: 8px; color: #555;"></p>
+            </div>
+    
+            <!-- Description Section -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter a description here..."></textarea>
+            </div>
+    
+            <!-- Landmark Section -->
+            <div class="form-group">
+                <label for="landmark">Landmark:</label>
+                <input type="text" id="landmark" name="landmark" placeholder="Enter landmark here...">
+            </div>
+    
+            <!-- Location Section -->
+            <div class="form-group">
+                <!-- Hidden inputs for latitude and longitude -->
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+                
+                <label for="location">Find Your Location:</label>
+                <button type="button" class="select-image" onclick="getLocation()">Get Location</button>
+                <div id="locationInfo" class="location-info">Location will appear here...</div>     
+            </div>
+            <div id="map" style="height: 200px;"></div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+            
+        </form>
+        
+        <!-- Back Button -->
+        <a href="http://localhost/fillpit/dashboard.html" class="back-button">Back</a>
+    </div>
+    
+    <script src="submit.js"></script>
+</body>
+</html>

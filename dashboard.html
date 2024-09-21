@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="#" onclick="switchPage('profilePage')">Profile</a></li>
+                    <li><a href="Submit/submit.html">Submit</a></li>
+                    <li><a href="rewards.html" onclick="switchPage('rewardsPage')">Rewards</a></li>
+                    <!-- <li><a href="#" onclick="switchPage('historyPage')">History</a></li> -->
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="login\login.php">Logout</a>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top navigation and statistics cards -->
+            <header class="top-nav">
+                <!-- <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div> -->
+                <div class="user-info">
+                    <img src="9720009.jpg" alt="User Avatar" class="avatar">
+                </div>
+            </header>
+            <!--  List -->
+            <div class="detail-section">
+                <h4>All Details</h4>
+                <table id="detailTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>    
+            <!-- history graph -->
+            <section class="submission-history">
+                <h4>Submission History</h4>
+                <canvas id="submissionGraph"></canvas>
+            </section>
+            <div class="submission-form-container">
+                <h1>Submit Your Details</h1>
+                <form id="submissionForm" action="submit.php" method="POST" enctype="multipart/form-data">
+                    <!-- Image Upload Section -->
+                    <div class="form-group">
+                        <label for="imageUpload">Upload Image:</label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display:none;" onchange="showImageName()">
+                        <button type="button" class="select-image" onclick="document.getElementById('imageUpload').click()">Select Image</button>
+                        <p id="imageName" style="margin-top: 8px; color: #555;"></p>
+                    </div>
+                
+                    <!-- Description Section -->
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Enter a description here..."></textarea>
+                    </div>
+                
+                    <!-- Landmark Section -->
+                    <div class="form-group">
+                        <label for="landmark">Landmark:</label>
+                        <input type="text" id="landmark" name="landmark" placeholder="Enter landmark here...">
+                    </div>
+                
+                    <!-- Location Section -->
+                    <div class="form-group">
+                        <label for="location">Find Your Location:</label>
+                        <input type="text" id="location" name="location" placeholder="Enter your location">
+                        <div id="locationInfo" class="location-info">Location will appear here...</div>
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>                
+            </div>
+
+
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="location.js"></script> <!-- Include the new location.js file -->
+</body>
+</html>

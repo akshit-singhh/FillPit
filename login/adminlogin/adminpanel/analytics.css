@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    /* overflow-x: hidden; */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+      .chart-container {
+            width: 100%;
+            margin: 0 auto;
+margin-left:300px ;        
+margin-top: 90px;
+
+}
+
+        h2 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            width: 100% !important;  
+            height: auto !important; 
+        }
+
+        .chart-container1 {
+            width: 250px;  
+            height: auto; 
+            margin-left: 200px; 
+            margin-top: 100px;
+        left: 910px;
+        position: absolute;
+        }
+    
+
+:root{
+    /* ===== Colors ===== */
+    --primary-color: #0E4BF1;
+    --panel-color: #FFF;
+    --text-color: #000;
+    --black-light-color: #707070;
+    --border-color: #e6e5e5;
+    --toggle-color: #DDD;
+    --box1-color: #4DA3FF;
+    --box2-color: #FFE6AC;
+    --box3-color: #E7D1FC;
+    --title-icon-color: #fff;
+    
+    /* ====== Transition ====== */
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+    --tran-03: all 0.2s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+}
+body.dark{
+    --primary-color: #3A3B3C;
+    --panel-color: #242526;
+    --text-color: #CCC;
+    --black-light-color: #CCC;
+    --border-color: #4D4C4C;
+    --toggle-color: #FFF;
+    --box1-color: #3A3B3C;
+    --box2-color: #3A3B3C;
+    --box3-color: #3A3B3C;
+    --title-icon-color: #CCC;
+}
+/* === Custom Scroll Bar CSS === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0b3cc1;
+}
+
+body.dark::-webkit-scrollbar-thumb:hover,
+body.dark .activity-data::-webkit-scrollbar-thumb:hover{
+    background: #3A3B3C;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background-color: var(--panel-color);
+    border-right: 1px solid var(--border-color);
+    transition: var(--tran-05);
+}
+nav.close{
+    width: 73px;
+}
+nav .logo-name{
+    display: flex;
+    align-items: center;
+}
+nav .logo-image{
+    display: flex;
+    justify-content: center;
+    min-width: 45px;
+}
+nav .logo-image img{
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+nav .logo-name .logo_name{
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-left: 14px;
+    transition: var(--tran-05);
+}
+nav.close .logo_name{
+    opacity: 0;
+    pointer-events: none;
+}
+nav .menu-items{
+    margin-top: 40px;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-items li{
+    list-style: none;
+}
+.menu-items li a{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    text-decoration: none;
+    position: relative;
+}
+.nav-links li a:hover:before{
+    content: "";
+    position: absolute;
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+body.dark li a:hover:before{
+    background-color: var(--text-color);
+}
+.menu-items li a i{
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-light-color);
+}
+.menu-items li a .link-name{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black-light-color);    
+    transition: var(--tran-05);
+}
+nav.close li a .link-name{
+    opacity: 0;
+    pointer-events: none;
+}
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name{
+    color: var(--primary-color);
+}
+body.dark .nav-links li a:hover i,
+body.dark .nav-links li a:hover .link-name{
+    color: var(--text-color);
+}
+.menu-items .logout-mode{
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+.menu-items .mode{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.menu-items .mode-toggle{
+    position: absolute;
+    right: 14px;
+    height: 50px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.mode-toggle .switch{
+    position: relative;
+    display: inline-block;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+.switch:before{
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-color: var(--panel-color);
+    border-radius: 50%;
+    transition: var(--tran-03);
+}
+body.dark .switch:before{
+    left: 20px;
+}
+
+nav.close ~ .dashboard{
+    left: 73px;
+    width: calc(100% - 73px);
+}
+
+.sec{
+    position: relative;
+    display: flex;
+    top: 250px;
+    
+}
+.table-container {
+  max-height: 500px; 
+  width: 70%;
+  overflow-y: scroll; 
+  border: 5px solid black; 
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); 
+  position: absolute;
+  left: -500px;
+  margin-top: 250px;
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table th, 
+.table td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td:first-child {
+  font-weight: bold;
+}
+.mapdiv {
+  position: relative;
+  object-fit: cover;
+  filter: drop-shadow(0px 0px 12px black);
+  z-index: 1;
+  top: 150px;
+  margin-right: -10px; 
+}
+
+.mapdiv svg {
+  overflow: hidden;
+  transform: scale(0.7); 
+  transform-origin: top 90px right; 
+}
+
+.mapdiv path {
+  fill: #fefefe;
+  stroke: #000;
+  stroke-width: 1px;
+  transition: fill 0.3s;
+}
+.state-andhra-pradesh:hover {
+  fill: #FFB6C1; 
+}
+.state-chhattisgarh:hover{
+  fill: #721926;
+}
+
+.state-arunachal-pradesh:hover {
+  fill: #87CEEB; 
+}
+
+.state-assam:hover {
+  fill: #FF6347; 
+}
+
+.state-bihar:hover {
+  fill: #0ac50a; 
+}
+
+.state-chhattisgarh:hover {
+  fill: #FFD700; 
+}
+
+.state-goa:hover {
+  fill: #40E0D0; 
+}
+
+.state-gujarat:hover {
+  fill: #FF4500; 
+}
+
+.state-haryana:hover {
+  fill: #1E90FF; 
+}
+
+.state-himachal-pradesh:hover {
+  fill: #BA55D3; 
+}
+
+.state-jharkhand:hover {
+  fill: #4682B4; 
+}
+
+.state-karnataka:hover {
+  fill: #FF69B4; 
+}
+
+.state-kerala:hover {
+  fill: #008080; 
+}
+
+.state-madhya-pradesh:hover {
+  fill: #FF8C00; 
+}
+
+.state-maharashtra:hover {
+  fill: #6A5ACD; 
+}
+
+.state-manipur:hover {
+  fill: #20B2AA; 
+}
+
+.state-meghalaya:hover {
+  fill: #9370DB; 
+}
+
+.state-mizoram:hover {
+  fill: #00FA9A; 
+}
+
+.state-nagaland:hover {
+  fill: #FF00FF; 
+}
+
+.state-odisha:hover {
+  fill: #800000; 
+}
+
+.state-punjab:hover {
+  fill: #00FF7F; 
+}
+
+.state-rajasthan:hover {
+  fill: #4682B4; 
+}
+
+.state-sikkim:hover {
+  fill: #DC143C; 
+}
+
+.state-tamil-nadu:hover {
+  fill: #FF4500; 
+}
+
+.state-telangana:hover {
+  fill: #8B4513; 
+}
+
+.state-tripura:hover {
+  fill: #B8860B; 
+}
+
+.state-uttar-pradesh:hover {
+  fill: #2E8B57; 
+}
+
+.state-uttarakhand:hover {
+  fill: #FF1493; 
+}
+
+.state-west-bengal:hover {
+  fill: #6B8E23; 
+}
+
+.ut-andaman-nicobar:hover {
+  fill: #CD5C5C; 
+}
+
+.ut-chandigarh:hover {
+  fill: #7B68EE; 
+}
+
+.ut-dadra-nagar-haveli-daman-diu:hover {
+  fill: #5F9EA0;
+}
+
+.ut-delhi:hover {
+  fill: #4B0082; 
+}
+
+.ut-jammu-kashmir:hover {
+  fill: #FFD700; 
+}
+
+.ut-ladakh:hover {
+  fill: #DB7093; 
+}
+
+.ut-lakshadweep:hover {
+  fill: #66CDAA; 
+}
+
+.ut-puducherry:hover {
+  fill: #DC143C; 
+}
+
+
+.mapdiv svg {
+ 
+  overflow: hidden;
+  transform: scale(0.7); 
+  transform-origin: top 90px right ; 
+}
+
+
