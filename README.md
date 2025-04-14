@@ -47,7 +47,7 @@ A browser
 
 Setup Instructions
 1. Clone this repository:
-git clone https://github.com/your-username/fillpit.git
+git clone [https://github.com/your-username/Fillpit.git]
 
 Move it to your XAMPP htdocs folder:
 mv fillpit/ /xampp/htdocs/
