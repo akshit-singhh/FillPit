@@ -2,8 +2,25 @@
 
 Fillpit is a web-based platform designed to empower citizens to report potholes on Indian roads. Users can upload pothole images along with location details, which are then sent to relevant authorities for review and repair. The project aims to bridge the communication gap between the public and road maintenance departments, helping create safer roads.
 
-## 🌐 Live Demo
-(If hosted, add link here. Otherwise, remove this section.)
+## 🖼️ Screenshots
+
+### 🏠 Homepage
+
+![Homepage]![homepage](https://github.com/user-attachments/assets/931eadad-1f87-497e-9d68-8bcf0df9d6a2)
+![homepage2](https://github.com/user-attachments/assets/188ecd29-e54e-4b74-8e86-0d28a12040d6)
+
+
+
+### 📋 Report Form
+
+![Report Form]
+![Submitpage](https://github.com/user-attachments/assets/ceebad84-a063-4171-ab40-6b4ce7e501e7)
+
+
+### 🗺️ Live Location with Map
+
+![Map Integration]![Submitpage](https://github.com/user-attachments/assets/19732fd7-34e0-4ccd-bf1f-6061720784b3)
+
 
 ## 📸 Features
 
@@ -47,7 +64,7 @@ A browser
 
 Setup Instructions
 1. Clone this repository:
-git clone [https://github.com/your-username/Fillpit.git]
+git clone [https://github.com/akshit-singhh/Fillpit.git]
 
 Move it to your XAMPP htdocs folder:
 mv fillpit/ /xampp/htdocs/
